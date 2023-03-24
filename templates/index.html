@@ -1,0 +1,19 @@
+{% include "header.html" %}
+{% block content %}
+        <div class="main-container">        
+            <h3>Home</h3>
+            <h6>A rambler's account</h6>
+            <blockquote>{{ quote[0] }} <br>&nbsp;&nbsp;&nbsp;&nbsp; {{ quote[1] }}</blockquote>
+            <ul class="blog-posts">
+                <li><a href="/poems">Poems</a></li>
+                <li><a href="/stories">Short Stories</a></li>
+                <li><a href="/thoughts">Thoughts</a></li>
+                <li><a href="/people">People</a></li>
+                <li><a href="/helloworldpython">Hello, Python</a></li>
+                <li><a href="/articles">Articles</a></li>
+                <li><a href="/english">Grammar Assistant</a></li>
+            </ul>
+       </div>
+{% endblock %}
+<hr>
+{% include "footer.html" %}

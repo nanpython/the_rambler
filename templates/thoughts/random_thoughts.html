@@ -1,0 +1,22 @@
+{% include "header.html" %}
+<nav>
+    <a href="/thoughts">Thoughts</a>
+</nav>
+{% block content %}
+<div class="main-container">
+    <h3>Random Thoughts</h3>
+        <div class="thoughts">
+            <h1>{{thought}}</h1>
+        </div>
+</div>
+<p align="right">   
+    <button id="refresh" onclick="refresh()">Show Another</button>
+</p>
+<hr>
+<script>
+    function refresh() {
+        window.location.reload();
+    }
+</script>
+{% endblock %}
+{% include "footer.html" %} 

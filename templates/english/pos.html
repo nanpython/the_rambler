@@ -1,0 +1,33 @@
+{% include "header.html" %}
+<nav>
+    <a href="/english">English Grammar</a>
+</nav>
+{% block content %}
+<div class="main-container">
+    <h3>Parts of Speech</h3>
+    <div>
+    <p>
+        <form method="post">
+            <label-for name="textField">Enter a complete sentence</label-for><br>
+            <input style="padding: 5px 5px; line-height: 18px; width:90%" type="text" name="textField" size="30px"><br>
+            <input style="width:20%;" type="submit" class="button" value="Show">
+        </form>
+    </p>
+    <p>
+        {% if items %}
+        <strong>{{ line }}</strong>
+        <dl>
+            {% for item in items %}
+                {% for k, v in item.items() %}
+                    <dt>{{ k }}</dt>
+                    <dd>{{ v }}</dd>
+                {% endfor %}
+            {% endfor %}
+        </dl>
+        {% endif %}
+    </p>
+</div>
+</div>
+<hr>
+{% endblock %}
+{% include "footer.html" %}  

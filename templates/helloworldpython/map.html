@@ -1,0 +1,86 @@
+{% include "header.html" %}
+<nav>
+    <a href="/helloworldpython">Hello World - Python</a>
+</nav>
+{% block content %}
+<div class="main-container">
+    <h3>Map</h3>
+    <div>
+<p>Map is a function to transform every element in a collection without using a loop. It is a functional programming concept. </p>
+
+<strong>Note: </strong><strong><em>Use the embedded python interpreter at the bottom of this page to try the examples.</em></strong>
+
+<h2>Examples</h2>
+
+<h3>Convert numbers in a list to strings</h3>
+Transform a list of names.
+<code><pre>
+# convert a list of numbers to strings
+nums = [12, 34, 45, 56]
+str_nums = map(str, nums)
+print(str_nums)
+print(list(str_nums))
+</pre></code>
+Output
+<code><pre>
+    &lt;map object at 0x13a550070&gt;
+    ['12', '34', '45', '56']
+</pre></code>
+<h3>Transforming a range of numbers</h3>
+Using lambda keyword.
+<code><pre>
+list(map(lambda x: x*3, range(5)))
+</pre></code>
+Output
+<code><pre>[0, 3, 6, 9, 12]</pre></code>
+
+<h3>Transforming strings</h3>
+<p>Let us say you have a list of names that you want to change to proper nouns (first letter uppercase). </p>
+
+<p>Two approaches:</p>
+<ul>
+<li>Using list comprehension</li>
+<li>Using map with lambda function</li>
+</ul>
+
+<code><pre>
+names = ['anand', 'lakshmi', 'sam', 'raghu', 'sneha']
+
+capitalized_names = [name.capitalize() for name in names]
+
+print(names)
+print(capitalized_names)
+
+</pre></code>
+Output
+<code><pre>
+['anand', 'lakshmi', 'sam', 'raghu', 'sneha']
+['Anand', 'Lakshmi', 'Sam', 'Raghu', 'Sneha']
+</pre></code>
+
+
+<h3>Using lambda function</h3>
+<p>The map() function takes two arguments: the transformation function followed by a list. </p>
+
+Here the map() function is used with a lambda function to transform every name in the last. 
+
+<code><pre>
+mapped_names = list(map(lambda name: name.capitalize(), names))
+print(mapped_names)
+</pre></code>
+
+The lambda keyword is used to create an anonymous function that processes the input and returns a result. In the example above, <em>name</em> is the argument passed on to the anonymous function. it performs the operation, namely capitalize(), placed after the colon. 
+
+<div>
+    <iframe
+      src="https://jupyterlite.github.io/demo/repl/index.html?kernel=python&toolbar=1"
+      width="100%"
+      height="500px"
+    >
+    </iframe>
+    </div>
+    </div>
+    </div>
+    <hr>
+    {% endblock %}
+    {% include "footer.html" %} 

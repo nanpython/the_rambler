@@ -1,0 +1,141 @@
+{% include "header.html" %}
+<nav>
+    <a href="/helloworldpython">Hello World - Python</a>
+</nav>
+{% block content %}
+<div class="main-container">
+    <h3>Set</h3>
+    <div>
+<p>A set is an unordered collection of unique elements of any type.</p>
+
+<strong>Note: </strong><strong><em>Use the embedded python interpreter at the bottom of this page to try the examples.</em></strong>
+
+<h2>Examples</h2>
+<h3>Create a set</h3>
+Create a set of names.
+<code><pre>unique_names = {'modi', 'saboo', 'kumar', 'sam', 'ali'}</pre></code>
+A print of unique_names returns the names in no particular order. 
+<code><pre>{'kumar', 'ali', 'modi', 'sam', 'saboo'}</pre></code>
+Create an empty set of entries.
+<code><pre>entries = {}</pre></code>
+As in a list, the elements are separated by commas. Elements can be a string, a number, a boolean value or any object including None.
+<p>A set can also be created using the <strong>set</strong> function.
+<code><pre>a_set = set()</pre></code>
+The <strong>set</strong> function takes only one argument. It can take an iterable as the argument, such as a list, a string or a tuple.
+<code><pre>
+a_list = ['a', 'b', 'c']
+a_set = set(a_list)
+print(a_set)
+</pre></code>
+Output
+<code><pre>{'b', 'c', 'a'}</pre></code>
+
+<h3>Add an element</h3>
+<p>Elements can be added or removed from a set. Use the <strong>add</strong> function to add items to a set.</p>
+<code><pre>unique_names.add('hari')</pre></code>
+The element is added to the set. 
+<code><pre>{'ali', 'sam', 'saboo', 'modi', 'hari', 'kumar'}</pre></code>
+
+<h3>Remove an element</h3>
+To remove <em>kumar</em> from the set, use <strong>remove</strong> function. 
+<code><pre>unique_names.remove('kumar')</pre></code>
+If you try to remove an element that is not present in the set, then a KeyError is raised. To avoid this error, use the <strong>discard</strong> function instead.
+<code><pre>unique_names.discard('nandy')</pre></code>
+
+<h3>Modify a set</h3>
+To modify a set, the function <strong>update</strong> is used. The function takes an iterable such as another set, a list, a string or a tuple.
+<code><pre>
+print(len(unique_names))
+extra_names = {'san', 'lan', 'dan'}
+unique_names.update(extra_names)
+print(unique_names)
+print(len(unique_names))
+</pre></code>
+
+To remove all elements from a set, use the function <strong>clear</strong> or simply assign an empty set or another set of elements to replace all.
+
+
+<h3>Iterate through a set</h3>
+To loop through a set of elements one at a time, try this. 
+<code><pre>
+for item in unique_names:
+	print(item)
+</pre></code>
+Or, print only three-letter names. 
+<code><pre>
+for item in unique_names:
+    if len(item) <= 3:
+        print(item)
+</pre></code>
+
+<h3>Set operations</h3>
+The set data structure provides functions of the mathematical set, such as 
+<ul>
+<li>union A &cup; B</li>
+<li>intersection A &cap; B</li>
+<li>difference A \ B</li>
+<li>symmetric difference (delta) A &Delta; B</li>
+</ul>
+
+<h4>union of sets</h4>
+A union of two sets is a collection of elements from both the sets. The operator | is used to perform the union operation. The function <strong>union</strong> may also be used. 
+
+<code><pre>
+s1 = {'a', 'b', 'c'}
+s2 = {'x', 'y', 'z'}
+
+s3 = s1 | s2
+print(s3)
+</pre></code>
+Output
+<code><pre>{'b', 'c', 'a', 'z', 'x', 'y'}</pre></code>
+
+<h4>intersection of sets</h4>
+An intersection of two sets is a set of all those elements that are common to both the sets. The & operator is used to perform the intersection operation. The function <strong>intersection</strong> may also be used. 
+<code><pre>
+s1 = {'a', 'b', 'c'}
+s2 = {'x', 'y', 'b'}
+
+s3 = s1 & s2
+print(s3)
+</pre></code>
+Output
+<code><pre>{'b'}</pre></code>
+
+<h4>difference in sets</h4>
+A difference between sets is a set of all elements in the first set that are not present in the second set. The - operator is used to perform the difference operation. The function <strong>difference</strong> may also be used. 
+<code><pre>
+s1 = {'a', 'b', 'c'}
+s2 = {'x', 'y', 'b'}
+
+s3 = s1 - s2
+print(s3)
+</pre></code>
+Output
+<code><pre>{'c', 'a'}</pre></code>
+
+<h4>symmetric difference in sets</h4>
+A symmetric difference of sets is a collection of elements of both the sets that are unique. The operator ^ is used to perform the symmetric difference operation. The function <strong>symmetric_difference</strong> may also be used. 
+
+<code><pre>
+s1 = {'a', 'b', 'c'}
+s2 = {'x', 'y', 'b'}
+s3 = s1 ^ s2
+print(s3)
+</pre></code>
+Output
+<code><pre>{'a', 'c', 'y', 'x'}</pre></code>
+
+<div>
+<iframe
+  src="https://jupyterlite.github.io/demo/repl/index.html?kernel=python&toolbar=1"
+  width="100%"
+  height="500px"
+>
+</iframe>
+</div>
+</div>
+</div>
+<hr>
+{% endblock %}
+{% include "footer.html" %} 

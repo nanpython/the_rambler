@@ -1,0 +1,34 @@
+{% include "header.html" %}
+<nav>
+    <a href="/people">People</a>
+</nav>
+{% block content %}
+<div class="main-container">
+    <h3>My wife - Swarna Sri</h3>
+
+        <img align="center" src="{{url_for('static', filename='images/people/swarna.jpg')}}" alt='Swarna Sri' width="200" />
+    
+    <div>
+        <p>
+We have been married for over three decades and raised two sons. Swarna has a penchant for teaching. She has been teaching for over two decades for classes in primary to high school. Now she trains teachers both online and in class.
+</p><p> 
+Swarna has multiple degrees to her credit. She graduated in Arts (BA). After marriage she added more degrees to her repertoire of qualifications. She did masters in political science (MA), took a bachelor’s degree in education (BEd) and also in business administration (MBA).
+</p>
+<img align="right" src="{{url_for('static', filename='images/people/swarna_principal.jpg')}}" alt='Swarna Sri' width="200" />
+<p> 
+Her students adore her and she has a plethora of souvenirs from them. She worked as a principal in an international school and earned accolades from the establishment.
+</p>
+<img align="left" src="{{url_for('static', filename='images/people/swarna_ganesh.jpg')}}" alt='Ganesh' width="200" />
+<img align="left" src="{{url_for('static', filename='images/people/swarna_horse.jpg')}}" alt='horse' width="200" />
+<p> 
+I suspect there is art in each one of us and it can express itself given the opportunity. Swarna found hers when we were about to relocate from Mumbai to Visakhapatnam. She was not into teaching yet, having been newly married, she had met a friend who introduced her to this art form - chiseling animal and god forms on aluminium sheets. She made a horse on one sheet and Ganesh the elephant god on the other. Then she ventured into making fabric come alive with faces and trees. But this streak of art didn’t last when she launched herself into teaching full time. The pictures of her art do not do them justice really; the elements have affected their original splendour.
+</p>
+<img align="right" src="{{url_for('static', filename='images/people/swarna_fabric.jpg')}}" alt='Fabric' width="200" />
+<p> 
+There is no end to human adaptability, although it may be not so fast as we grow old. Before marriage Swarna had never stepped into her mother’s kitchen except to enquire what is cooking. However, left to her own wits, she picked up hints from me and her Punjabi neighbourhood friend how to cook. Years later she was making delicious food of her own, although she never could get over her dislike for cooking. Initially she resisted against adjusting to her new family but eventually adapted well and today she is the centrepiece of our lives.
+</p>
+</div>
+</div>
+<hr>
+{% endblock %}
+{% include "footer.html" %} 

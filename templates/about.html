@@ -1,0 +1,21 @@
+{% include "header.html" %}
+{% block content %}
+<div class="main-container">
+    <h3>About me</h3>
+    <div>
+        <img width="120" src="{{ url_for('static', filename='images/blog/self.jpeg') }}" alt="">
+        <p>I am Anand Betanabhotla, the rambler on this website.</p>
+        <p>
+            Welcome to my website. Hopefully you will find something that might interest you. I have dabbled in programming and writing fiction and non-fiction, and I did whatever sparked my interest. 
+            </p><p>
+            I have ventured into what people might call spiritual stuff too, which raised more questions than any answers I have found. All that is here. 
+            </p><p>
+            Feel free to send your feedback to <em>ananddotb@gmail.com</em> and I will respond ASAP.
+            </p><p>
+            Enjoy reading.
+        </p>
+    </div>
+</div>
+{% endblock %}
+<hr>
+{% include "footer.html" %}

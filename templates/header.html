@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% block head %}
+    <title>The Rambler</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+{% endblock %}
+</head>
+<body>
+<div>
+    <div><h1>The Rambler
+        <!--
+        <img valign="top" src="{{ url_for('static', filename='rambler.png') }}" width="3%">
+        -->
+    </h1></div>
+</div>
+{% include "nav.html" %}

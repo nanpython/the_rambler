@@ -1,0 +1,91 @@
+{% include "header.html" %}
+<nav>
+    <a href="/helloworldpython">Hello World - Python</a>
+</nav>
+{% block content %}
+<div class="main-container">
+    <h3>List</h3>
+    <div>
+<p>A list is a collection of elements of any type.</p>
+
+<strong>Note: </strong><strong><em>Use the embedded python interpreter at the bottom of this page to try the examples.</em></strong>
+
+<h2>Examples</h2>
+<h3>Create a list</h3>
+Create a list of names.
+<code><pre>names = ['modi', 'saboo', 'kumar', 'sam', 'ali']</pre></code>
+Create an empty list of entries.
+<code><pre>entries = []</pre></code>
+The elements in a list are separated by commas. Elements can be a string, a number, a boolean value or any object including None.
+<p>Print the list to the console using the <strong>print</strong> function.
+<code><pre>print(names)</pre></code>
+Output
+<code><pre>['modi', 'saboo', 'kumar', 'sam', 'ali']</pre></code>
+A list may alsobe created from the <strong>list</strong> function.
+<code><pre>
+name = 'anand'
+letters = list(name)
+print(letters)
+</pre></code>
+Output
+<code><pre>['a', 'n', 'a', 'n', 'd']</pre></code>
+
+<h3>Add an element</h3>
+<p>Elements can be added or removed from a list. Use the <strong>append</strong> function to add items to a list.</p>
+<code><pre>names.append('hari')</pre></code>
+The element is added at the end of the list. 
+<code><pre>['modi', 'saboo', 'kumar', 'sam', 'ali', 'hari']</pre></code>
+
+<h3>Remove an element</h3>
+To remove <em>kumar</em> from the list, use <strong>remove</strong> function. It removes the first occurence in the list. 
+<code><pre>names.remove('kumar')</pre></code>
+
+<h3>Modify a list</h3>
+Modify a list. To replace an element in a list with another item, we need to use the index operator. A list arranges its elements in a sequence starting from 0. So, the first element is at ineex 0 and the index increases until the last element is at index length-of-the-list minus 1. 
+<code><pre>len(names)</pre></code>
+Output
+<code><pre>5</pre></code>
+Replace <em>saboo</em> with <em>pavan</em>
+<code><pre>names[1] = 'pavan'</pre></code>
+Print the names again. The output is
+<code><pre>['modi', 'pavan', 'sam', 'ali', 'hari']</pre></code>
+To remove all elements from a list, use the function <strong>clear</strong> or simply assign an empty list or another list of elements to replace all.
+<code><pre>names_2 = names</pre></code>
+Now <em>names_2</em> contains all the elements of the list <em>names</em>.
+
+<h3>Merge lists</h3>
+<p>To merge a list with another list, use the <strong>extend</strong> function.</p>
+<code><pre>new_names = ['sarah', 'rama', 'agha']
+names.extend(new_names)
+print(names)
+</pre></code>
+Output
+<code><pre>['modi', 'pavan', 'sam', 'ali', 'hari', 'sarah', 'rama', 'agha']</pre></code>
+To add an element at a particular location in a list, use the <strong>insert</strong> function. After insertion, the elements will be pushed to the right after the specified index. 
+<code><pre>names.insert(3, 'raja')
+print(names)</pre></code>
+Output
+<code><pre>['modi', 'pavan', 'sam', 'raja', 'ali', 'hari', 'sarah', 'rama', 'agha']</pre></code>
+
+<h3>Iterate through a list</h3>
+To loop through a list of elements one at a time, try this. Print names in uppercase using the function <strong>upper</strong>
+<code><pre>for name in names:
+    print(name.upper())</pre></code>
+
+Or, print only four-letter names. 
+<code><pre>for name in names:
+    if len(name) == 4:
+        print(name)</pre></code>
+<div>
+<iframe
+  src="https://jupyterlite.github.io/demo/repl/index.html?kernel=python&toolbar=1"
+  width="100%"
+  height="500px"
+>
+</iframe>
+
+</div>
+</div>
+<hr>
+{% endblock %}
+{% include "footer.html" %} 
