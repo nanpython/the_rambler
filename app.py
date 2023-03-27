@@ -1,8 +1,5 @@
 from flask import Flask, request, render_template
-from flask_mail import Mail, Message
 from werkzeug.utils import secure_filename
-import sqlite3
-from openpyxl import load_workbook
 import os, random
 import string
 import nltk
@@ -73,30 +70,6 @@ def get_quote(filename):
     quote = (random.choice(quotes)).split('|')
     return quote
 
-def read_xl(xls):
-    question_list = []
-    folder = os.path.join(os.getcwd(), 'static')
-    wb = load_workbook(folder + "/" + xls)
-    sheet = wb["Sheet1"]
-    row_count = sheet.max_row
-    column_count = sheet.max_column
-    for i in range(1, row_count):
-        line = []
-        for j in range(1, column_count + 1):
-            data = sheet.cell(row=i+1, column=j).value
-            line.append(str(data))
-        question_list.append(line)
-    return question_list
-
-def load_mcq(filename, db):
-    conn = openDB(db)
-    lst = read_xl(filename)
-    line_items = []
-    for line in lst:
-        items = line.split()
-        line_str = [ i.join(' ') for i in items]
-        line_items.append(line_str)
-
 @app.route("/")
 def main():
     quote = get_quote('quotes.txt')
@@ -153,31 +126,10 @@ def quiz():
 
 @app.route("/<category>/<title>", methods=['GET', 'POST'])
 def show_pages(category, title):
-    if category == 'quiz':
-        return show_mcq(title)
     if category == 'thoughts':
         return show_thoughts(category, title)
-    if category == 'facts':
-        return show_fact(category, title)
     path = f'/{category}/{title}.html'
     return render_template(path)
-
-def show_fact(category, title):
-    try:
-        conn = openDB('facts.db')
-        conn.row_factory = sqlite3.Row
-        cursor = conn.cursor()
-        cursor.execute("SELECT * FROM factoid ORDER BY RANDOM() LIMIT 1;")
-        row = cursor.fetchone(); 
-        cursor.close()
-    except sqlite3.Error as error:
-        print("Failed to read single row from sqlite table", error)
-    finally:
-        if conn:
-            conn.close()
-            print("The SQLite connection is closed")
-        path = f'/{category}/{title}.html'
-        return render_template(path, row=row)
 
 def show_thoughts(category, title):
     global thoughts
@@ -190,10 +142,6 @@ def show_thoughts(category, title):
     thought = thoughts[thoughts_counter]
     page = f'/{category}/{title}.html'
     return render_template(page, thought=thought)
-
-def show_mcq(mcq):
-    lst = read_xl("quiz/"+mcq+".xlsx")
-    return render_template('/quiz/mcq.html', lines=lst, title=mcq)
 
 @app.route('/english/pos', methods=['GET', 'POST']) 
 def pos():
@@ -221,67 +169,6 @@ def get_tag_list(line):
     # print tagged tokens
     return tagged
 
-##### Database ######
-def openDB(db):
-    conn = sqlite3.connect(db)
-    return conn;
-
-@app.route('/facts') 
-def facts():
-    return render_template('facts/index.html')
-
-@app.route("/edit_fact")
-def edit_fact():
-    id = request.args.get("id", default=0, type=int)
-    try:
-        conn = openDB('facts.db')
-        conn.row_factory = sqlite3.Row
-        cur = conn.cursor()
-        cur.execute("selectb * from factoid where id = "+id )
-        row = cur.fetchone();
-        cur.close()
-    except:
-        msg = "error in fetch operation"
-    finally:
-        conn.close()
-        return render_template("facts/edit_fact.html", row=row)
-
-@app.route('/fact_list')
-def fact_list():
-    conn = openDB('facts.db')
-    conn.row_factory = sqlite3.Row
-    cur = conn.cursor()
-    cur.execute("select * from factoid;")
-    rows = cur.fetchall(); 
-    conn.close()
-    print(rows)
-    return render_template("facts/fact_list.html", rows=rows)
-
-@app.route("/add_fact", methods=['GET', 'POST'])
-def addfactform(id):
-    if request.method == 'POST':
-        conn = openDB('facts.db')
-        try:
-            title = request.form['title']
-            fact = request.form['fact']
-            tag = request.form['tag']
-            
-            cur = conn.cursor()
-            cur.execute("INSERT INTO factoid (title,fact,tag) VALUES (?,?,?)",(title,fact,tag) )
-            conn.commit()
-            msg = "Record successfully added"
-        except:
-            conn.rollback()
-            msg = "error in insert operation"
-      
-        finally:
-            conn.close()
-            return fact_list()
-    else:
-        return render_template("facts/add_fact.html")
-
-
-###
 def render_posts(folder):
     posts_list = get_posts_list(folder)
     names = []
