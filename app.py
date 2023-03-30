@@ -49,7 +49,6 @@ abbs = {"CC":"Coordinating Conjunction",
 
 
 thoughts = []
-thoughts_counter = -1
 
 # quotes list
 def get_thoughts(filename):
@@ -135,11 +134,8 @@ def show_thoughts(category, title):
     global thoughts
     if len(thoughts) == 0:
         get_thoughts("thoughts.txt")
-    global thoughts_counter
-    if thoughts_counter >= len(thoughts):
-        thoughts_counter = -1
-    thoughts_counter = thoughts_counter + 1
-    thought = thoughts[thoughts_counter]
+    random.shuffle(thoughts)
+    thought = thoughts[0]
     page = f'/{category}/{title}.html'
     return render_template(page, thought=thought)
 
