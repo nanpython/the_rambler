@@ -1,0 +1,91 @@
+{% include "header.html" %}
+<nav>
+    <a href="/helloworldpython">Hello World - Python</a>
+</nav>
+{% block content %}
+<div class="main-container">
+    <h3>Dictionary</h3>
+    <div>
+
+<p>A dictionary holds one or more key-value pairs in a <strong>dict</strong> data structure.</p>
+
+The elements in a dictionary are called keys. Each key has a corresponding value. In some languages the dictionary is also known as an associative array. 
+
+
+<code><pre>
+capitals = {
+    'Telangana' : 'Hyderabad',
+    'Tamilnadu' : 'Chennai',
+    'Uttar Pradesh' : 'Lucknow'
+}
+
+print(type(capitals))
+</pre></code>
+
+
+Output
+<code><pre>
+<class 'dict'>
+</pre></code>
+
+<h3>Using the dict() function</h3>
+
+<strong>Note</strong> the difference in the way key-value pairs are written. 
+
+
+<code><pre>
+logins = dict(
+  admin = "super",
+  user = "guest",
+  )
+
+print(logins)
+print(logins['user'])
+</pre></code>
+
+
+Output
+
+<code><pre>
+{'admin': 'super', 'user': 'guest'}
+guest
+</pre></code>
+
+
+<h3>Using get() to access a dictionary pair</h3>
+
+<code><pre>
+password = logins.get('admin')
+print(password)
+# using string formatting
+print(f'password for admin is {password}') 
+</pre></code>
+
+Output
+<code><pre>
+super
+</pre></code>
+
+When "get()" is called it checks if the given key exists in the dict. If it does not exist then the value of the default argument is returned instead. Helps avoid errors in the code. 
+
+<code><pre>
+print(logins.get('visitor', 'not found'))
+</pre></code>
+
+Output
+<code><pre>
+print(logins.get('visitor', 'not found'))
+</pre></code>
+
+<div>
+<iframe
+  src="https://jupyterlite.github.io/demo/repl/index.html?kernel=python&toolbar=1"
+  width="100%"
+  height="500px"
+>
+</iframe>
+</div>
+</div>
+<hr>
+{% endblock %}
+{% include "footer.html" %} 
