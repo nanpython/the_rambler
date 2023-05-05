@@ -1,0 +1,30 @@
+
+{% include "header.html" %}  
+<nav>
+    <a href="/blog">Blog</a>
+</nav>
+{% block content %}
+<div class="main-container">
+    <h3>San Antonio</h3>
+    <hr>
+    <small>Posted by The Rambler</small>
+    <div>
+        <p>
+If you ever happen to be in Austin in Texas, USA, don't miss the opportunity to go to San Antonio. It is a riverside town of historical significance. 
+</p>
+<img src="{{url_for('static', filename='images/blog/sanantonio.jpg')}}" alt="San Antonio, Texas">
+<p> 
+The river is fed by rains and its canals crisscross the city. Walk along the river and watch its dark waters shimmer and flow gently. It is not deep we are told, but certainly very cold I am sure. 
+</p><p> 
+There are bridges spanning the river channels and staircases to go up to the street level. There are the eateries and bars all along the walkways.
+</p><p> 
+Barges ply on the canals and the tour guide  We took a ride on one and found that the captain was a jovial man and a raconteur. He provided a running commentary about the river and the history of the place. The place has its roots in Spanish-Mexican culture from before Texas became independent from Mexico to join the American federation. 
+</p><p> 
+A variety of plants from small shrubs to tall trees greet the visitors, including flowering plants and grassy knolls. The street buildings can be seen looming over the walkways, the sky revealing itself in patches and the winding path along the river takes the visitor through an enchanting tour along the river.
+</p>
+
+</div>
+</div>
+<hr>
+{% endblock %}
+{% include "footer.html" %}
