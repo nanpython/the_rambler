@@ -1,0 +1,170 @@
+{% include "header.html" %}
+<nav>
+    <a href="/helloworldpython">Hello World - Python</a>
+</nav>
+{% block content %}
+<div class="main-container">
+    <h3>Strings</h3>
+    <div>
+
+
+A string in Python is a sequence of characters. It can be a single character, a word or a bunch of text enclosed in quotation marks.
+
+<p>
+Strings can be declared in single or double quotes. 
+</p>
+<code><pre>
+print('Python is a great language to learn for beginners.')
+print("Python is short and crisp for quickly developing application prototypes.")
+</pre></code>
+
+<h3>Type</h3>
+There is no character type in Python. There is only <em>str</em> type for both characters and character sequences. 
+<code><pre>
+char = 's'
+print(type(char))
+</pre></code>
+Output
+<code><pre>
+&ltclass 'str'&gt
+</pre></code>
+
+<h3>Loop</h3>
+Strings can be iterated like any iterable using the for loop. 
+
+<code><pre>
+name = 'python'
+
+for letter in name:
+    print(letter, end=' ')
+
+print('\n')
+
+#using list comprehension
+letters = [letter for letter in name]
+print(letters)
+</pre></code>
+Output
+<code><pre>
+p y t h o n 
+
+['p', 'y', 't', 'h', 'o', 'n']
+</pre></code>
+
+<h3>Length</h3>
+Use the length function to determine the number of characters in a string. 
+<code><pre>
+word = 'Python'
+num_chars = len(word)
+print(num_chars)
+</pre></code>
+Output
+<code><pre> 6 </pre></code>
+
+<h3>Indexing</h3>
+You can walk through a string using the index operator. String index starts from 0. 
+
+<code><pre>
+name = "silicon"
+first_letter = name[0]
+print(first_letter)
+last_letter = name[-1]
+print(last_letter)
+</pre></code>
+Output
+<code><pre> 
+s
+n
+</pre></code>
+
+<h3>Slicing</h3>
+A substring can be made from a string by slicing. A slice of a string expects start and end index within the index operator. 
+<code><pre>
+line = 'Python is a high level, general purpose language.'
+language = line[0:6]
+print(language)
+</pre></code>
+All letters starting from start index 0 to end index-1.
+<p>
+Output
+</p>
+<code><pre>
+Python
+</pre></code>
+
+<h3>Operators for comparison</h3>
+The opearators <em>==</em> checks for equality and <em>!=</em> for inequality. Similarly, the operators <em>&lt;</em> and <em>&gt;</em> for comparison based on lexicographic ordering. Another pair of useful lexicographic comparators are also available - these operators <em>&lt;=</em> and <em>&gt;=</em> compare equality as well. 
+
+<code><pre>
+s1 = 'python'
+s2 = 'Python'
+
+print(s1 == s2)
+print(s1 < s2)
+print(s1 > s2)
+print(s1 <= s2)
+print(s1 >= s2)
+
+</pre></code>
+Output
+<code><pre>
+False
+False
+True
+False
+True
+</pre></code>
+The boolean return True or False helps in decision making during execution of code. 
+<p>
+The operators <em>*</em> and <em>+</em> provide useful operations like repetition and concatenation of strings. 
+</p>
+<code><pre>
+s1 = 'Python'
+s2 = 'language'
+
+# repeat P 5 times
+p5 = s1[0] * 5
+print(p5)
+
+# join s1 and s2 with space in between.
+language = s1 + ' ' + s2
+print(language)
+</pre></code>
+Output
+<code><pre>
+PPPPP
+Python language
+</pre></code>
+<h3>Interpolation</h3>
+Variables are substituted with their values (interpolated) at runtime using the curly braces <em>{ }</em>. 
+<code><pre>
+title = 'Python Basics'
+author = 'Nandy OS'
+text = f'The book {title} is authored by {author}.'
+#note the use of the letter f before the quotation mark. 
+
+print(text)
+</pre></code>
+<p>This is called the <strong>f-string</strong>. It is useful for string formatting.</p>
+Output
+<code><pre>
+The book Python Basics is authored by Nandy OS.
+</pre></code>
+String formatting is also done using the format method and the <em>%</em> operator, but the <strong>f-string</strong> is now more common. 
+<code><pre>
+text = "The book {} is authored by {}.".format(title, author)
+print(text)
+</pre></code>
+It is, however, not elegant like the <strong>f-string</strong>.
+<div>
+<iframe
+  src="https://jupyterlite.github.io/demo/repl/index.html?kernel=python&toolbar=1"
+  width="100%"
+  height="500px"
+>
+</iframe>
+</div>
+</div>
+<hr>
+{% endblock %}
+{% include "footer.html" %} 
