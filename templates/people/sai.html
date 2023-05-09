@@ -1,0 +1,35 @@
+{% include "header.html" %}
+<nav>
+    <a href="/people">People</a>
+</nav>
+{% block content %}
+<div class="main-container">
+    <h3>MKR Sai - a friend</h3>
+    
+
+    <div>
+      <img align="center" src="{{url_for('static', filename='images/people/sai.jpg')}}" alt='sai' width="250" />
+      <img align="center" src="{{url_for('static', filename='images/people/siva.jpg')}}" alt='siva' width="250" />
+        <p>
+People continue to amaze me. We think we have known a person for so long that nothing they do or say will surprise you. Nothing could be further from the truth. 
+</p><p>
+A college mate and colleague, Sai and I go way back forty years but not until recently have I come to know that he has a talent for drawing. He didn't know either until he did it. Talk about re-inventing oneself.
+</p><p>
+He is meticulous and goes deep into the subject that has caught his interest. This is attested to by his wife, and his art corroborates it. I have understood that it is this attention to detail that guides the hand to draw. 
+</p><p>
+Acrylic on canvas is his forte, and he discovered it when his daughter suggested that he try his hand at drawing. Now in his sixties he found his hobby. He has graciously consented to permit me to include some of his works. 
+<p>
+
+      <img align="center" src="{{url_for('static', filename='images/people/ladies.jpg')}}" alt='ladies' width="200" />
+      <img align="center" src="{{url_for('static', filename='images/people/krishna.jpg')}}" alt='krishna' width="200" />
+      <img align="center" src="{{url_for('static', filename='images/people/animals.jpg')}}" alt='animals' width="200" />
+      <img align="center" src="{{url_for('static', filename='images/people/dolls.jpg')}}" alt='dolls' width="200" />
+      
+      <img align="center" src="{{url_for('static', filename='images/people/elephant.jpg')}}" alt='elli' width="200" />
+      <img align="center" src="{{url_for('static', filename='images/people/peacock.jpg')}}" alt='peacock' width="200" />
+      
+    </div>
+</div>
+<hr>
+{% endblock %}
+{% include "footer.html" %} 
