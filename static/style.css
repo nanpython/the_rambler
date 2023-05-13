@@ -91,11 +91,6 @@ hr {
     border-top: 1px dashed;
 }
 
-img {
-    max-width: 100%;
-    padding: 3%;
-}
-
 code {
     font-family: monospace;
     padding: 2px;
@@ -201,4 +196,14 @@ ul {
   }
   
   .share-btn.twitter     { background: #55acee; }
+
+#section {
+    width: 240px;
+    border: 1px solid black;
+}
+
+img {
+    max-width: 100%;
+    object-fit: contain;
+}
 
