@@ -205,5 +205,6 @@ ul {
 img {
     max-width: 100%;
     object-fit: contain;
+    padding: 3%;
 }
 
